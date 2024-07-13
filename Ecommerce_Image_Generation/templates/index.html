@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Image Generation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <h1>Generate E-commerce Images</h1>
+    <button onclick="generateImage()">Generate Image</button>
+    <div id="image-container">
+        <img src="{{ url_for('static', filename='images/generated.png') }}" alt="Generated Image">
+    </div>
+    <script>
+        function generateImage() {
+            fetch('/generate-image', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('generated-image').src = data.image_url;
+            });
+        }
+    </script>
+</body>
+</html>
