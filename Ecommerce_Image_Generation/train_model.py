@@ -42,7 +42,7 @@ latent_dim = 100
 image_dim = 28 * 28 * 1  # for MNIST dataset
 batch_size = 64
 learning_rate = 0.0002
-epochs = 30 # preferablly higher like 50
+epochs = 5 # preferablly higher like 50 to generate better Images
 
 generator = Generator(latent_dim, image_dim)
 discriminator = Discriminator(image_dim)
